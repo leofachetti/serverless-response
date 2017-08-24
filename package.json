@@ -1,0 +1,23 @@
+{
+  "name": "serverless-response",
+  "version": "0.0.1",
+  "description": "Serverless Framework response module",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leofachetti/serverless-response.git"
+  },
+  "author": "Leonardo Fachetti <leofachetti@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leofachetti/serverless-response/issues"
+  },
+  "homepage": "https://github.com/leofachetti/serverless-response#readme",
+  "devDependencies": {
+    "chai": "^4.1.1",
+    "mocha": "^3.5.0"
+  }
+}
