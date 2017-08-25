@@ -115,7 +115,7 @@ module.exports = {
                 cb(event, context, callback);
             } catch(e) {
                 console.error(e);
-		callback(`[500] ${e.message}`);
+                module.exports.internalServerError().body({"message": e.message}).build(callback);
             }
         }
     }
