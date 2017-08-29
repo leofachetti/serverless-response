@@ -1,6 +1,6 @@
 {
   "name": "serverless-response",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Serverless Framework response module",
   "main": "index.js",
   "scripts": {

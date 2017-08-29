@@ -51,6 +51,14 @@ let DSLPolicy = () => {
 
         deny: (principalId) => {
             return DLSPolicyResource(principalId, 'Deny');
+        },
+
+        unauthorized: () => {
+            return {
+                build: (cb) => {
+                    cb('Unauthorized');
+                }
+            }
         }
     }
 }
