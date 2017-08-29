@@ -21,6 +21,40 @@ let DSL = (statusCode) => {
     }
 }
 
+let DLSPolicyResource = (principalId, effect) => {
+    return {
+        resource: (resource) => {
+            return {
+                build: (cb) => {
+                    cb(null, {
+                        'principalId': principalId,
+                        'policyDocument': {
+                            'Version': '2012-10-17',
+                            'Statement': [{
+                                'Action': 'execute-api:Invoke',
+                                'Effect': effect,
+                                'Resource': resource
+                            }]
+                        }
+                    });
+                }
+            }
+        }
+    }
+}
+
+let DSLPolicy = () => {
+    return {
+        allow: (principalId) => {
+            return DLSPolicyResource(principalId, 'Allow');
+        },
+
+        deny: (principalId) => {
+            return DLSPolicyResource(principalId, 'Deny');
+        }
+    }
+}
+
 module.exports = {
     // 1xx Informational
     continue: () => {
@@ -118,5 +152,9 @@ module.exports = {
                 module.exports.internalServerError().body({"message": e.message}).build(callback);
             }
         }
+    },
+
+    policy: () => {
+        return DSLPolicy();
     }
 }
